@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let person = {
+            name:'张三',
+            age:18,
+        }
+
+        let p = new Proxy(person,{
+            set(target,propName,value){
+                console.log(`${propName}被修改了，我要去更新界面了`)
+                Reflect.set(target,propName,value)
+            }
+        })
+        // 就是一个普通的字符串赋值
+        let name = p.name
+
+    </script>
+</body>
+</html>
